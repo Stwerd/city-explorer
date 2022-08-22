@@ -17,4 +17,4 @@ using js and react, created a web page with a form that takes an input and a but
 
 
 ## Credit and Collaborations
-Created a readnme and imported the wireframe.
+Brooke and Matt helped create the [wireframe](src/images/apiwireframe.png).
