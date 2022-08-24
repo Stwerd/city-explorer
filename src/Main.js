@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './Main.css';
@@ -12,7 +12,7 @@ class Main extends React.Component {
       input: '',
       location: [],
       map: ''
-    }
+    };
   }
   handleSubmit = async e => {
     e.preventDefault();
@@ -21,16 +21,17 @@ class Main extends React.Component {
       console.log(`submitted form and called handleSubmitCity ${this.state.input}`);
 
       const getIt = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.input}&format=json`);
-
+      //const getForecast = await axios.get(`${process.env.REACT_APP_SERVER}/weather?city_name=${this.state.input}`);
       this.setState({
         location: getIt.data,
       });
       console.log(getIt.data);
+      //console.log(getForecast.data);
     } catch (error) {
       console.log('error', error);
       console.log('error.message: ', error.message);
     }
-  }
+  };
   render() {
     let city = this.state.location.map((r, idx) => {
       return <Card key={idx} style={{ width: '18vw' }}>
@@ -40,7 +41,7 @@ class Main extends React.Component {
           <Card.Text>Longitude: {r.lon}</Card.Text>
           <Card.Text>Location: {r.display_name}</Card.Text>
         </Card.Body>
-      </Card>
+      </Card>;
     });
 
     return (
