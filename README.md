@@ -18,3 +18,13 @@ using js and react, created a web page with a form that takes an input and a but
 
 ## Credit and Collaborations
 Brooke and Matt helped create the [wireframe](src/images/apiwireframe.png).
+
+Name of feature: Display forecast
+
+Estimate of time needed to complete: 30 min
+
+Start time: 2pm
+
+Finish time: 2:30pm
+
+Actual time needed to complete: 2 hours
