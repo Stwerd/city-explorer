@@ -3,3 +3,17 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.butt{
+  width:20vw;
+  height:20%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

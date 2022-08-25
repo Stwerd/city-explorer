@@ -6,9 +6,9 @@ class LocForm extends React.Component {
       <>
         <form onSubmit={this.props.handleSubmit}>
           <legend>Submit A location!</legend>
-            <label>Where would you like to go?</label><br/>
-            <input onChange={(e) => this.setState({ input: e.target.value })}></input>
-            <button type="button">Explore!</button>
+          <label>Where would you like to go?</label><br />
+          <input onChange={(e) => this.props.handler(e.target.value)}></input>
+          <button>Explore!</button>
         </form>
       </>
     )
