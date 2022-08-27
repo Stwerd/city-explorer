@@ -5,7 +5,7 @@ import './Movies.css';
 export default class Movie extends React.Component {
   render() {
     let movieDisplay = this.props.movieArr.map(r => {
-      return <Card className = 'butt'>
+      return <Card className = 'hello'>
         <Card.Body>
           <Card.Text>Title: {r.title}</Card.Text>
           <Card.Img src={r.url} />

@@ -24,7 +24,7 @@ class Main extends React.Component {
     };
   }
 
-//function passed into the City Card so that I may change the state in Main from there.
+  //function passed into the City Card so that I may change the state in Main from there.
   handler = (val) => {
     this.setState({
       input: val
@@ -34,16 +34,16 @@ class Main extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    
+
     // console.log(this.state.input);
 
     try {
-
       //from user input, get the cities lat and lon
+      console.log('trying to git city');
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.input}&format=json`
       const getIt = await axios.get(url);
-      // console.log(getIt.data[0]);
-
+      
+      console.log('trying to get foreCast');
       //store the lat and lon in variables
       let lat = getIt.data[0].lat;
       let lon = getIt.data[0].lon;
@@ -52,6 +52,7 @@ class Main extends React.Component {
       let forecastURL = `${process.env.REACT_APP_SERVER}/weather?lat=${lat}&lon=${lon}`;
       const getForecast = await axios.get(forecastURL);
 
+      console.log(getForecast.data.data);
       //from the cities name, call the local server to respond with a array of movies about the city that I am in.
       let movieUrl = `${process.env.REACT_APP_SERVER}/movie?title=${this.state.input}`;
       const getMov = await axios.get(movieUrl);
@@ -84,7 +85,7 @@ class Main extends React.Component {
           handler={this.handler}
         />
         {this.state.location.lat && !this.state.error.errorState ? (
-          <CityCard
+          <CityCard 
             location={this.state.location}
             description={this.state.description}
             url={this.state.map}
@@ -92,12 +93,13 @@ class Main extends React.Component {
         ) : (
           <></>
         )}
-        
-        {this.state.movieArr.length > 0 && !this.state.error.errorState ? (
-          <Movie movieArr ={this.state.movieArr}/>
-        ) : (
-          <></>
-        )}
+        <section className='grape'>
+          {this.state.movieArr.length > 0 && !this.state.error.errorState ? (
+            <Movie movieArr={this.state.movieArr} />
+          ) : (
+            <></>
+          )}
+        </section>
       </main>
     );
   }
